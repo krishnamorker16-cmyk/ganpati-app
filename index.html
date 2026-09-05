@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Shree Ganeshan Nameh</title>
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ font-family:Georgia,serif;
+ background:#f7eee4;
+ color:#421018;
+}
+
+.hidden{display:none!important}
+
+button{
+ border:0;
+ cursor:pointer;
+}
+
+#welcome,#login{
+ min-height:100vh;
+ background:url("red-texture.jpg") center/cover;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ padding:20px;
+}
+
+.welcomeBox{
+ color:#fff8e8;
+}
+
+.ganpati{
+ width:150px;
+ height:150px;
+ border-radius:50%;
+ object-fit:cover;
+ border:4px solid #c99b45;
+}
+
+h1{
+ color:#65131d;
+}
+
+#welcome h1{
+ color:#fff8e8;
+ font-size:40px;
+ text-shadow:0 3px 8px #000;
+}
+
+button.primary{
+ background:#c99b45;
+ color:#351017;
+ padding:13px 28px;
+ border-radius:25px;
+ font-weight:bold;
+ font-size:16px;
+}
+
+.loginBox{
+ width:400px;
+ max-width:100%;
+ background:#fff8ec;
+ padding:30px;
+ border-radius:20px;
+}
+
+input{
+ width:100%;
+ padding:12px;
+ margin:7px 0 15px;
+ border:1px solid #cdb88e;
+ border-radius:9px;
+}
+
+header{
+ height:65px;
+ background:#5d1019;
+ color:white;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:8px 15px;
+ position:sticky;
+ top:0;
+}
+
+.logo{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ font-weight:bold;
+}
+
+.logo img,.profile{
+ width:45px;
+ height:45px;
+ border-radius:50%;
+ object-fit:cover;
+ border:2px solid #c99b45;
+}
+
+main{
+ width:92%;
+ max-width:1000px;
+ margin:25px auto;
+}
+
+.hero{
+ background:#5d1019;
+ color:white;
+ padding:25px;
+ border-radius:20px;
+}
+
+.cards{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:15px;
+ margin-top:20px;
+}
+
+.card{
+ background:#fffaf1;
+ padding:22px;
+ border-radius:18px;
+ border:1px solid #ead8b8;
+}
+
+.card h2{
+ color:#65131d;
+}
+
+.year{
+ font-size:35px;
+ color:#c99b45;
+ font-weight:bold;
+}
+
+.add{
+ width:50px;
+ height:50px;
+ border-radius:50%;
+ background:#c99b45;
+ font-size:30px;
+}
+
+.back{
+ padding:10px 15px;
+ border-radius:10px;
+ background:#ead8b8;
+ color:#65131d;
+ font-weight:bold;
+}
+
+.media{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:10px;
+}
+
+.media img,.media video{
+ width:100%;
+ border-radius:10px;
+}
+
+.ack{
+ background:#fff9eb;
+ border:2px solid #c99b45;
+ padding:25px;
+ border-radius:20px;
+ text-align:center;
+ line-height:1.8;
+}
+
+.morya{
+ font-size:25px;
+ font-weight:bold;
+ color:#65131d;
+ margin:20px;
+}
+
+.signature{
+ text-align:right;
+}
+
+.record{
+ background:white;
+ padding:12px;
+ border-radius:10px;
+ margin:8px 0;
+}
+
+.bottom{
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
+ height:60px;
+ background:#fffaf1;
+ display:flex;
+ justify-content:space-around;
+ align-items:center;
+}
+
+.bottom button{
+ background:none;
+ color:#65131d;
+ font-weight:bold;
+}
+
+@media(max-width:600px){
+ .media{grid-template-columns:1fr}
+ #welcome h1{font-size:32px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRST PAGE -->
+
+<section id="welcome">
+
+<div class="welcomeBox">
+
+<img src="ganpati.jpg" class="ganpati">
+
+<h1>Shree Ganeshan Nameh</h1>
+
+<p>Our Ganpati memories and celebrations</p>
+
+<button class="primary" onclick="openLogin()">
+Enter
+</button>
+
+</div>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section id="login" class="hidden">
+
+<div class="loginBox">
+
+<h2>Shree Ganeshan Nameh</h2>
+
+<label>Gmail ID</label>
+
+<input id="email"
+type="email"
+placeholder="yourname@gmail.com">
+
+<label>Password</label>
+
+<input id="password"
+type="password"
+placeholder="Password">
+
+<button class="primary"
+style="width:100%"
+onclick="login()">
+Open App
+</button>
+
+<p style="font:12px Arial;color:#745d57">
+This is only a prototype. Do not enter your real
+Gmail password. A future version can use secure
+Google Sign-In.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- MAIN APP -->
+
+<section id="app" class="hidden">
+
+<header>
+
+<div class="logo">
+
+<img src="ganpati.jpg">
+
+<span>Shree Ganeshan Nameh</span>
+
+</div>
+
+<img src="ganpati.jpg" class="profile">
+
+</header>
+
+
+<main>
+
+<!-- HOME -->
+
+<div id="home">
+
+<div class="hero">
+
+<h2>Ganpati Bappa Morya 🙏</h2>
+
+<p>
+Our family's Ganpati memory book.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card"
+onclick="showMemories()">
+
+<h2>📸 Memories</h2>
+
+<p>
+Photos and videos of every Ganpati year.
+</p>
+
+</div>
+
+
+<div class="card"
+onclick="showContribution()">
+
+<h2>🪔 Contribution</h2>
+
+<p>
+Keep contribution records.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MEMORIES -->
+
+<div id="memories" class="hidden">
+
+<div style="display:flex;
+justify-content:space-between;
+align-items:center">
+
+<h1>📸 Memories</h1>
+
+<button class="add"
+onclick="addYear()">+</button>
+
+</div>
+
+<button class="back"
+onclick="home()">← Back</button>
+
+<div id="years" class="cards"></div>
+
+</div>
+
+
+<!-- YEAR -->
+
+<div id="yearPage" class="hidden">
+
+<button class="back"
+onclick="showMemories()">
+← Back
+</button>
+
+<h1 id="yearTitle"></h1>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h2>📷 Photos</h2>
+
+<input type="file"
+accept="image/*"
+multiple
+onchange="photos(this)">
+
+<div id="photoBox" class="media"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎥 Videos</h2>
+
+<input type="file"
+accept="video/*"
+multiple
+onchange="videos(this)">
+
+<div id="videoBox" class="media"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CONTRIBUTION -->
+
+<div id="contribution" class="hidden">
+
+<button class="back"
+onclick="home()">← Back</button>
+
+<h1>🪔 Contribution</h1>
+
+
+<div class="ack">
+
+<h2>Shree Ganeshan Nameh</h2>
+
+<p>
+This is the acknowledge that
+<b id="aName">[name]</b>
+has contributed
+₹<b id="aAmount">[amount]</b>
+towards the Ganpati celebration
+on
+<b id="aDate">[date]</b>.
+</p>
+
+<p>
+We sincerely thank you for your valuable
+contribution and support.
+</p>
+
+<div class="morya">
+Ganpati Bappa Morya
+</div>
+
+<div class="signature">
+Sign by<br>
+<b>Krishna</b>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Add Contribution</h2>
+
+<label>Name</label>
+
+<input id="name"
+placeholder="Contributor name">
+
+<label>Amount</label>
+
+<input id="amount"
+type="number"
+placeholder="Amount">
+
+<label>Date</label>
+
+<input id="date"
+type="date">
+
+<label>Sign by</label>
+
+<input id="code"
+placeholder="Enter sign">
+
+<button class="primary"
+onclick="save()">
+Save Contribution
+</button>
+
+<p style="font:12px Arial">
+Only <b>120086</b> saves the contribution.
+The code itself is not displayed in records.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Saved Contributions</h2>
+
+<div id="records"></div>
+
+</div>
+
+</div>
+
+</main>
+
+
+<div class="bottom">
+
+<button onclick="home()">⌂ Home</button>
+
+<button onclick="showMemories()">
+📸 Memories
+</button>
+
+</div>
+
+</section>
+
+
+<script>
+
+const SECRET="120086";
+
+let currentYear=2026;
+
+
+/* LOGIN */
+
+function openLogin(){
+
+ welcome.classList.add("hidden");
+
+ login.classList.remove("hidden");
+
+}
+
+
+function login(){
+
+ if(
+  !email.value ||
+  !password.value
+ ){
+
+  alert("Enter Gmail ID and password");
+
+  return;
+
+ }
+
+ login.classList.add("hidden");
+
+ app.classList.remove("hidden");
+
+ home();
+
+}
+
+
+/* PAGES */
+
+function hide(){
+
+ homePage("home");
+
+ homePage("memories");
+
+ homePage("yearPage");
+
+ homePage("contribution");
+
+}
+
+
+function homePage(id){
+
+ document.getElementById(id)
+ .classList.add("hidden");
+
+}
+
+
+function home(){
+
+ hide();
+
+ document.getElementById("home")
+ .classList.remove("hidden");
+
+}
+
+
+/* YEARS */
+
+function getYears(){
+
+ return JSON.parse(
+ localStorage.getItem("years")
+ || "[2026,2027]"
+ );
+
+}
+
+
+function showMemories(){
+
+ hide();
+
+ memories.classList.remove("hidden");
+
+ renderYears();
+
+}
+
+
+function renderYears(){
+
+ years.innerHTML="";
+
+ getYears().forEach(y=>{
+
+  const c=document.createElement("div");
+
+  c.className="card";
+
+  c.innerHTML=`
+   <div class="year">${y}</div>
+   <p>Ganpati memories from ${y}</p>
+  `;
+
+  c.onclick=()=>openYear(y);
+
+  years.appendChild(c);
+
+ });
+
+}
+
+
+function addYear(){
+
+ const y=parseInt(
+ prompt("Enter year")
+ );
+
+ if(!y){
+
+  return;
+
+ }
+
+ const list=getYears();
+
+ if(list.includes(y)){
+
+  alert("Year already exists");
+
+  return;
+
+ }
+
+ list.push(y);
+
+ list.sort((a,b)=>a-b);
+
+ localStorage.setItem(
+ "years",
+ JSON.stringify(list)
+ );
+
+ renderYears();
+
+}
+
+
+/* YEAR */
+
+function openYear(y){
+
+ currentYear=y;
+
+ hide();
+
+ yearPage.classList.remove("hidden");
+
+ yearTitle.innerText=
+ y+" Memories";
+
+}
+
+
+/* PHOTOS */
+
+function photos(input){
+
+ [...input.files].forEach(file=>{
+
+  const img=document.createElement("img");
+
+  img.src=
+  URL.createObjectURL(file);
+
+  photoBox.appendChild(img);
+
+ });
+
+}
+
+
+/* VIDEOS */
+
+function videos(input){
+
+ [...input.files].forEach(file=>{
+
+  const video=document.createElement("video");
+
+  video.src=
+  URL.createObjectURL(file);
+
+  video.controls=true;
+
+  videoBox.appendChild(video);
+
+ });
+
+}
+
+
+/* CONTRIBUTION */
+
+function showContribution(){
+
+ hide();
+
+ contribution.classList.remove("hidden");
+
+ date.value=
+ date.value ||
+ new Date()
+ .toISOString()
+ .slice(0,10);
+
+ update();
+
+ records.innerHTML=
+ localStorage.getItem("records")
+ || "<p>No saved contributions yet.</p>";
+
+}
+
+
+function update(){
+
+ aName.innerText=
+ name.value || "[name]";
+
+ aAmount.innerText=
+ amount.value || "[amount]";
+
+ aDate.innerText=
+ date.value || "[date]";
+
+}
+
+
+name.addEventListener("input",update);
+
+amount.addEventListener("input",update);
+
+date.addEventListener("input",update);
+
+
+/* SAVE ONLY WITH 120086 */
+
+function save(){
+
+ if(
+  !name.value ||
+  !amount.value ||
+  !date.value
+ ){
+
+  alert("Fill all details");
+
+  return;
+
+ }
+
+ if(code.value !== SECRET){
+
+  alert("Contribution was not saved.");
+
+  return;
+
+ }
+
+
+ let old=
+ localStorage.getItem("records")
+ || "";
+
+ let record=`
+
+ <div class="record">
+
+ <b>${name.value}</b>
+
+ — ₹${amount.value}
+
+ <br>
+
+ Date: ${date.value}
+
+ <br>
+
+ Sign by: Krishna
+
+ </div>
+
+ `;
+
+
+ localStorage.setItem(
+ "records",
+ old+record
+ );
+
+
+ records.innerHTML=
+ localStorage.getItem("records");
+
+
+ name.value="";
+
+ amount.value="";
+
+ code.value="";
+
+ update();
+
+ alert("Contribution saved!");
+
+}
+
+</script>
+
+</body>
+</html>
